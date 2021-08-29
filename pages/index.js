@@ -35,6 +35,7 @@ export default function Index (props) {
 }
 
 export async function getServerSideProps() {
+  // get all note details from the JSON file
   let allNotes = await getNotes();
   return {
     props: { notes: allNotes },

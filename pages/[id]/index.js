@@ -1,54 +1,20 @@
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { Confirm, Button, Loader } from 'semantic-ui-react'
-
 import { getSingleNote } from "../../models/Note"
 
 export default function Note(props) {
-    const { note } = props;
-    const [confirm, setConfirm] = useState(false)
-    const [isDeleting, setIsDeleting] = useState(false)
-    const router = useRouter()
+  const { note } = props;
 
-    useEffect(() => {
-        if (isDeleting) {
-            deleteNote()
-        }
-    }, [isDeleting])
-
-    const open = () => setConfirm(true)
-
-    const close = () => setConfirm(false)
-
-    const deleteNote = async () => {
-        const noteId = router.query.id
-        try {
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    const handleDelete = async () => {
-        setIsDeleting(true)
-        close()
-    }
-
-    return (
-        <div className="note-container">
-            {isDeleting
-                ? <Loader active />
-                :
-                <>
-                    <h1>{note.title}</h1>
-                    <p>{note.description}</p>
-                </>
-            }
-        </div>
-    )
+  return (
+    <div className="note-container">
+      <h1>{note.title}</h1>
+      <p>{note.description}</p>
+    </div>
+  )
 }
   
 export async function getServerSideProps(context) {
+  // get note id from the URL
   const { id } = context.query;
+  // get note based on the ID
   let noteData = await getSingleNote(id);
   return {
     props: { note: noteData },
