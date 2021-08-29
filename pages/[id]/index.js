@@ -41,14 +41,8 @@ export default function Note(props) {
                 <>
                     <h1>{note.title}</h1>
                     <p>{note.description}</p>
-                    <Button color='red' onClick={open}>Delete</Button>
                 </>
             }
-            <Confirm
-                open={confirm}
-                onCancel={close}
-                onConfirm={handleDelete}
-            />
         </div>
     )
 }
