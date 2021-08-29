@@ -24,9 +24,6 @@ export default function Index (props) {
                   <Link href={`/${note._id}`}>
                     <Button primary>View</Button>
                   </Link>
-                  <Link href={`/${note._id}/edit`}>
-                    <Button primary>Edit</Button>
-                  </Link>
                 </Card.Content>
               </Card>
             </div>
