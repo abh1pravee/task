@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button, Card } from 'semantic-ui-react'
 import { Popup } from 'semantic-ui-react'
-import { getNotes, noteData } from "../models/Note"
+import { getNotes } from "../models/Note"
 export default function Index (props) {
   const { notes } = props;
   function myFunction() {
