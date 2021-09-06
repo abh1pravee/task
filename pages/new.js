@@ -2,6 +2,8 @@ import fetch from 'isomorphic-unfetch'
 import { useState, useEffect } from 'react'
 import { Button, Form, Loader } from 'semantic-ui-react'
 import { useRouter } from 'next/router'
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function NewNote() {
   const [form, setForm] = useState({ title: '', description: '' })
